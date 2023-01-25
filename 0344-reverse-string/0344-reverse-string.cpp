@@ -2,8 +2,8 @@ class Solution {
 public:
     void reverseString(vector<char>& s) {
         int i=0;
-        int j=s.size();
-        j--;
+        int j=s.size()-1;
+        // j--;
         // cout<<j<<endl;
         while(i<j){
             if(i==j) break;
