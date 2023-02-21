@@ -20,7 +20,6 @@ public:
                 }
             }
         }
-        cout<<n<<m;
         return dp[m-1][n-1];
     }
 };
