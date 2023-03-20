@@ -5,7 +5,7 @@ public:
         int m=text2.size();
         // vector<vector<int>> dp(n+1,vector<int> (m+1,0));
         vector<int> prev(m+1,0),cur(m+1,0);
-        for(int i=0;i<=m;i++) prev[i]=0;
+        // for(int i=0;i<=m;i++) prev[i]=0;
         // for(int i=0;i<=n;i++) dp[i][0]=0;
         for(int i=1;i<=n;i++){
             for(int j=1;j<=m;j++){
