@@ -1,18 +1,25 @@
 class Solution {
 public:
     bool isValid(string s) {
-        stack<char> paren;
-        for (char& c : s) {
-            switch (c) {
-                case '(': 
-                case '{': 
-                case '[': paren.push(c); break;
-                case ')': if (paren.empty() || paren.top()!='(') return false; else paren.pop(); break;
-                case '}': if (paren.empty() || paren.top()!='{') return false; else paren.pop(); break;
-                case ']': if (paren.empty() || paren.top()!='[') return false; else paren.pop(); break;
-                default: ; // pass
+        map<char,char> mp;
+        mp['(']=')';
+        mp['[']=']';
+        mp['{']='}';
+        stack<char> st;
+        for(auto x:s){
+            if(mp.count(x)){
+                st.push(x);
+                continue;
+            }
+            else{
+                if(st.empty()) return false;
+                if(x!=mp[st.top()]){
+                    return false;
+                }
+                st.pop();
+                continue;
             }
         }
-        return paren.empty() ;
+        return st.empty();
     }
 };
