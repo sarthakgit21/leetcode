@@ -13,7 +13,19 @@ public:
     
     int lengthOfLIS(vector<int>& nums) {
         int n=nums.size();
-        vector<vector<int>> dp(n,vector<int>(n+1,-1));
-        return fun(nums,n,n-1,-1,dp);
+        vector<int> ans;
+        int l=1;
+        ans.push_back(nums[0]);
+        for(int i=1;i<n;i++){
+            if(ans.back()<nums[i]) {
+                ans.push_back(nums[i]);
+                l++;
+            }
+            else{
+                int ind=lower_bound(ans.begin(),ans.end(),nums[i])-ans.begin();
+                ans[ind]=nums[i];
+            }
+        }
+        return l;
     }
 };
