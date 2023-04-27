@@ -16,6 +16,7 @@ public:
         int s=0;
         int c=0;
         int aa=0;
+        int kk=0;
         while(l1!=NULL||l2!=NULL||c){
             int sum=0;
             if(l1!=NULL){
