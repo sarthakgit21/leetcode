@@ -13,8 +13,8 @@ public:
         
         while(low <= high)
         {
-            int mid=(high+low)>>1;
-            // cout<<high<<mid<<low;
+            int mid=low+((high-low)>>1);
+            cout<<high<<mid<<low;
             
             
             if(arr[mid-1]<arr[mid]&&arr[mid]<arr[mid+1])
