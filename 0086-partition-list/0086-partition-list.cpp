@@ -36,7 +36,7 @@ public:
             temp=temp->next;
         }
         ans2->next=NULL;
-        ans->next=NULL;
+        // ans->next=NULL;
         ans->next=fans2->next;
         // cout<<ans->val;
         
