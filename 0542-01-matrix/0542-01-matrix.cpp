@@ -26,7 +26,7 @@ public:
                     int ny=dy[i]+y;
                     if(nx<0||ny<0||nx>=n||ny>=m||vis[nx][ny]==1) continue;
                     q.push({nx,ny});
-                    cout<<nx<<" "<<ny<<endl;
+                    // cout<<nx<<" "<<ny<<endl;
                     vis[nx][ny]=1;
                 mat[nx][ny]=steps+1;
                 
