@@ -5,10 +5,9 @@ public:
         
         while(columnNumber>0)
         {
+            columnNumber--;
             int val=columnNumber%26;
-            if(val==0) ans+='Z',val=26;
-            else
-            ans+=('A'+val-1);
+            ans+=('A'+val);
             columnNumber-=val;
             columnNumber/=26;
 
