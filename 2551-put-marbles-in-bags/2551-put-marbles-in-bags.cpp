@@ -3,7 +3,7 @@ public:
     long long putMarbles(vector<int>& weights, int k) {
         priority_queue<int> maxQ;
         priority_queue<int, vector<int>, greater<int>> minQ;
-        
+        int x;
         int n = weights.size();
         for (int i = 0; i < n - 1; i++) {
             maxQ.push(weights[i] + weights[i + 1]);
