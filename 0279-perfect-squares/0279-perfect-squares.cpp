@@ -36,9 +36,9 @@ public:
         int ans=0;
         memset(dp,-1,sizeof(dp));
         vector<int> vals;
-        for(int i=1;i<=n;i++)
+        for(int i=1;i*i<=n;i++)
         {
-            if(isquare(i)) vals.push_back(i);
+             vals.push_back(i*i);
         }
         ans=fun(0,n,vals);
         return ans;
