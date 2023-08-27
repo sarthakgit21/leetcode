@@ -12,17 +12,13 @@ public:
         
         for(int i=-1;i<=1;i++)
         {
-            int val=i+k;
-            
-            if(val>0)
-            {
-                for(int j=ind+val;j>ind;j--){
-                    if(j<stones.size()&&stones[j]-stones[ind]==val)
-                    {
-                        ans|=fun(stones,j,val);
-                    } 
-                }
-            }
+            int jump=i+k;
+            if (jump==0) continue;
+            //Use binary search, since stones[i] is ascending
+            int next=lower_bound(stones.begin()+(ind+1), stones.end(), stones[ind]+jump)
+                -stones.begin();
+            if (next==stones.size() || stones[next]!=stones[ind]+jump) continue; // not found
+            ans=ans||fun(stones, next, jump);
         }
         
         return dp[ind][k]=ans;
