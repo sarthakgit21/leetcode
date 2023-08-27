@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int dp[2001][2003];
+    int dp[2001][2001];
     bool fun(vector<int> &stones,int ind,int k)
     {
         if(ind==stones.size()-1)
