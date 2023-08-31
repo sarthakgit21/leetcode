@@ -8,12 +8,7 @@ int minTaps(int n, vector<int>& ranges) {
             int r = min(n, i+ranges[i]);
             jumps[l] = max(jumps[l], r-l);
         }
-        
-        for (auto i : jumps)
-            cout<<i<<" ";
-        cout<<endl;
-        
-        // See Jump Game II
+
         int count = 0, curEnd = 0, curFarthest = 0;
         for (int i = 0; i<jumps.size()-1; i++) {
             if (i>curFarthest)
