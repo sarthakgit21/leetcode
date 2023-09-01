@@ -12,10 +12,17 @@ public:
         return val;
     }
     vector<int> countBits(int n) {
-        vector<int> ans;
+        vector<int> ans(n+1,0);
         for(int i=0;i<=n;i++)
         {
-            ans.push_back(findBits(i));
+            if(i&1)
+            {
+                ans[i]=ans[i-1]+1;
+            }
+            else
+            {
+                ans[i]=ans[i/2];
+            }
         }
         return ans;
     }
