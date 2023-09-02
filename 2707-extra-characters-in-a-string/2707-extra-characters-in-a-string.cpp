@@ -25,6 +25,24 @@ public:
     int minExtraChar(string s, vector<string>& dictionary) {
         memset(t,-1,sizeof(t));
         set<string> vals(dictionary.begin(),dictionary.end());
-        return fun(s,vals,0);
+        int n=s.size();
+        vector<int> dp(n+1,1e9);
+        dp[n]=0;
+        for(int i=n-1;i>=0;i--)
+        {
+            int mini=s.size();
+            string ss;
+            for(int j=i;j<n;j++){
+                ss+=s[j];
+                int val=0;
+                if(vals.find(ss)==vals.end()){
+                    val=ss.size();
+                }
+                int val2=dp[j+1];
+                mini=min(mini,val+val2);
+            }
+            dp[i]=mini;
+        }
+        return dp[0];
     }
 };
