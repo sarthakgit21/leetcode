@@ -33,7 +33,7 @@ public:
             int mini=s.size();
             string ss;
             for(int j=i;j<n;j++){
-                ss+=s[j];
+                ss.push_back(s[j]);
                 int val=0;
                 if(vals.find(ss)==vals.end()){
                     val=ss.size();
