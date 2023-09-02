@@ -30,14 +30,15 @@ public:
         int n=s.size();
         vector<int> dp(n+1,1e9);
         dp[n]=0;
-        for(int i=n-1;i>=0;i--)
+        for(int i=n;i>=0;i--)
         {
+            if(i>=n) {dp[i]=0;continue;}
             int mini=s.size();
             string ss;
             for(int j=i;j<n;j++){
                 ss.push_back(s[j]);
                 int val=0;
-                if(mp[ss]==0){
+                if(vals.find(ss)==vals.end()){
                     val=ss.size();
                 }
                 int val2=dp[j+1];
