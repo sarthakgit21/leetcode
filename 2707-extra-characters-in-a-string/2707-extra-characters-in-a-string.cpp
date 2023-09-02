@@ -25,6 +25,8 @@ public:
     int minExtraChar(string s, vector<string>& dictionary) {
         memset(t,-1,sizeof(t));
         set<string> vals(dictionary.begin(),dictionary.end());
+        unordered_map<string,int> mp;
+        for(auto x:dictionary) mp[x]++;
         int n=s.size();
         vector<int> dp(n+1,1e9);
         dp[n]=0;
@@ -35,7 +37,7 @@ public:
             for(int j=i;j<n;j++){
                 ss.push_back(s[j]);
                 int val=0;
-                if(vals.find(ss)==vals.end()){
+                if(mp[ss]==0){
                     val=ss.size();
                 }
                 int val2=dp[j+1];
