@@ -25,7 +25,6 @@ public:
             prevvals=temp;
             temp=temp->next;
         }
-        // cout<<prevvals->val;
         ListNode* prev=NULL;
         ListNode* vals=temp;
         val++;
@@ -36,8 +35,6 @@ public:
             prev=temp;
             temp=nex;
         }
-        // cout<<prev->val;4if()
-        // if(prevvals!=head)
         if(prevvals->next) prevvals->next=prev;
         vals->next=temp;
         if(prevvals->next) return ans->next;
