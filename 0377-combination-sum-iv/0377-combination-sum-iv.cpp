@@ -15,10 +15,31 @@ public:
         
     }
     
-    int combinationSum4(vector<int>& nums, int target) {
+    int combinationSum4(vector<int>& nums, int val) {
         int ans=0;
-        memset(t,-1,sizeof t);
-        ans=fun(nums,target,0);
-        return ans;
+        memset(t,0,sizeof t);
+        // ans=fun(nums,target,0);
+        int n=nums.size();
+        vector<vector<int>> dp(n+1,vector<int>(val+1,0));
+        
+        for(int i=n;i>=0;i--){
+            
+            for(int target=0;target<=val;target++){
+                
+                if(i>=nums.size()) { dp[i][target]=0;continue;}
+                if(target==0)  {dp[i][target]=1;continue;}
+                long ans=0;
+
+                for(int ind=i;ind<nums.size();ind++){
+                    if(nums[ind]<=target)
+                    ans+=dp[i][target-nums[ind]];
+                }
+                dp[i][target]=ans;
+                
+            }
+            
+        }
+        
+        return dp[0][val];
     }
 };
