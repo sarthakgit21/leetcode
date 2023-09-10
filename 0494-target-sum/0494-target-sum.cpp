@@ -2,6 +2,7 @@ class Solution {
 public:
     int tar;
     int t[2003][21];
+    map<pair<int,int>,int> mp;
     int Countways(vector<int>& nums, int target,int ind){
         if(ind==nums.size()) {
             if(tar==target){
@@ -9,7 +10,8 @@ public:
             }
             return 0;
         }
-        if(t[target+1000][ind]!=-1) return t[target+1000][ind];
+        // if(t[target+1000][ind]!=-1) return t[target+1000][ind];
+        if(mp.find({target,ind})!=mp.end()) return mp[{target,ind}];
         
         int val1=target+nums[ind];
         int val2=target-nums[ind];
@@ -17,7 +19,7 @@ public:
         int ans=0;
         ans+=Countways(nums,val1,ind+1);
         ans+=Countways(nums,val2,ind+1);
-        return t[target+1000][ind]=ans;
+        return mp[{target,ind}]=ans;
         
         
         
