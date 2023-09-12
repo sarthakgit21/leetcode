@@ -3,15 +3,18 @@ public:
     int minDeletions(string s) {
         vector<int> vis(26,0);
         for(auto x:s) vis[x-'a']++;
-        
-        unordered_set<int> st;
+
+        sort(vis.begin(),vis.end());
         int ans=0;
-        for(int i=0;i<26;i++){
-            while(vis[i]>0&&st.find(vis[i])!=st.end()){
-                vis[i]--;
-                ans++;
+        for(int i=24;i>=0&&vis[i]>0;i--){
+            
+            if(vis[i]>=vis[i+1]){
+                
+                int val=vis[i];
+                vis[i]=max(0,vis[i+1]-1);
+                ans+=val-vis[i];
             }
-            st.insert(vis[i]);
+            
         }
         return ans;
         
