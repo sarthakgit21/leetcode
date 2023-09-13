@@ -2,30 +2,34 @@ class Solution {
 public:
     int candy(vector<int>& nums) {
         int n=nums.size();
-        vector<int> ans(n,1);
+        int val=n;
         
-        for(int i=1;i<n;i++){
-            if(nums[i-1]<nums[i]){
-                ans[i]=1+ans[i-1];
+        int i=0;
+        while(i<n){
+            if(i+1<n&&nums[i]==nums[i+1]){
+                i++;
+                continue;
             }
-        }
-        
-        
-        for(int i=n-2;i>=0;i--){
-            if(nums[i]>nums[i+1]){
-                
-                if(ans[i]<=ans[i+1]){
-                    ans[i]=1+ans[i+1];
-                }
-                
+            int ind=1;
+            while(i+1<n&&nums[i]<nums[i+1]){
+                val+=ind;
+                ind++;
+                i++;
             }
+            int ind2=1;
+            cout<<val<< " ";
+            while(i+1<n&&nums[i]>nums[i+1]){
+                val+=ind2;
+                ind2++;
+                i++;
+            }
+            cout<<ind2<<" "<<ind<<endl;        
+            // if(ind>1&&ind2>1)
+            val-=min(ind-1,ind2-1);
+            if(i>=n-1) break;
+
         }
-        // for(auto x:ans){cout<<x<<" ";}
         
-        int val=0;
-        for(int i=0;i<n;i++){
-            val+=ans[i];
-        }
         return val;
         
     }
