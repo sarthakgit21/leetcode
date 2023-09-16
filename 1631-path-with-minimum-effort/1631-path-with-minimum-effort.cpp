@@ -25,14 +25,13 @@ public:
         int maxval=abs(heights[n-1][m-1]-heights[0][0]);
         
         int l=0;
-        int h=1e9;
+        int h=1e6;
         int ans=0;
         while(l<=h){
             int mid=(l+h)/2;
             vector<vector<int>> vis(n,vector<int> (m,0));
             if(fun(heights,n,m,0,0,vis,mid)){
                 ans=mid;
-                // cout<<mid;
                 h=mid-1;
             }
             else{
