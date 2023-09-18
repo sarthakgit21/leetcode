@@ -4,16 +4,18 @@ public:
     int BSonarr(vector<int> arr){
         int l=0;
         int h=arr.size()-1;
+        int ans=-1;
         while(l<=h){
             int mid=(l+h)/2;
             if(arr[mid]==0){
                 h=mid-1;
             }
             else{
+                ans=mid;
                 l=mid+1;
             }
         }
-        return l;
+        return ans;
     }
     
     vector<int> kWeakestRows(vector<vector<int>>& mat, int k) {
