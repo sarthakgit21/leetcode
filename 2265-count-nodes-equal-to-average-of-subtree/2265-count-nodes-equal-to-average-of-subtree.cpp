@@ -12,11 +12,12 @@
 class Solution {
 public:
     int ans=0;
-    
+    unordered_map<TreeNode*,int> mp;
     int findSubTreeNodes(TreeNode*root){
         if(!root) return 0;
+        if(mp.find(root)!=mp.end()) return mp[root];
         int val=1;        
-        return val+findSubTreeNodes(root->left)+findSubTreeNodes(root->right);
+        return mp[root]=val+findSubTreeNodes(root->left)+findSubTreeNodes(root->right);
         
     }
     
@@ -28,7 +29,6 @@ public:
         
         int sum=(left+right);
         int n=findSubTreeNodes(root);
-        cout<<sum<<" "<<((root->val))<<" "<<n<<endl;
         if(root->val==((sum+root->val)/n)) ans++;
         return root->val+sum;
     }
