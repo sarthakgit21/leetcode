@@ -5,8 +5,8 @@ public:
         int m=travel.size();
         vector<int> pre(n,0);
         pre[0]=0;
-        for(int i=1;i<n;i++){
-            pre[i]=pre[i-1]+travel[i-1];
+        for(int i=1;i<m;i++){
+            travel[i]+=travel[i-1];
         }
         int i=0;
         map<char,int> mp;
@@ -20,7 +20,7 @@ public:
         }
         int ans=0;
         for(auto [x,y]:ind){
-            ans+=(pre[y]);
+            if(y-1>=0)ans+=(travel[y-1]);
             ans+=(mp[x]);
         }
         return ans;
