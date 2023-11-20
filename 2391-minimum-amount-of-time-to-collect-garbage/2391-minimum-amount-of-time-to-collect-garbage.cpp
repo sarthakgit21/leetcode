@@ -21,7 +21,6 @@ public:
         int ans=0;
         for(auto [x,y]:ind){
             ans+=(pre[y]);
-            // cout<<y<<" "<<pre[y]<<endl;
             ans+=(mp[x]);
         }
         return ans;
