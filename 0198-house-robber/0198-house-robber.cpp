@@ -2,6 +2,7 @@ class Solution {
 public:
     int rob(vector<int>& nums) 
     {
+        vector<vector<int>> dp(1000,vector<int>(2,-1));
         if(nums.size()==0) return 0;
         if(nums.size()==1) return nums[0];
         int prev=nums[0];
