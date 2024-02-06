@@ -9,6 +9,7 @@ string strSort(string s) {
         for (int c = 0; c < 26; c++) {
             t += string(counter[c], c + 'a');
         }
+            cout<<t<<endl;
         return t;
     }
 
