@@ -25,7 +25,6 @@ public:
             one=1+fun(ind,n-vals[ind],vals);
         }
         int last=fun(ind+1,n,vals);
-        // cout<<one<<" "<<last<<endl;
         return dp[ind][n]=min(one,last);
         
         
