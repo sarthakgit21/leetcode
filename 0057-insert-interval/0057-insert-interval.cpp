@@ -7,7 +7,7 @@ public:
         int i=0;
         int n=nums.size();
         int m=newInterval.size();
-        
+        // cout<<ans.back();
         if(n==0) return {newInterval};
         if(nums[0][0]>maxi) ans.push_back({mini,maxi});
         for(;i<nums.size();i++){
